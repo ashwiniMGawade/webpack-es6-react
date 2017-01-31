@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 module.exports = {
   entry: './src/index.jsx',
 
@@ -12,7 +13,21 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader?stage=1' }
+      { 
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader?stage=1' }
     ]
-  }
+  },
+
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings:false,
+      },
+      output: {
+        comments:false,
+      },
+    }),
+  ]
 };
