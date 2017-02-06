@@ -1,6 +1,13 @@
 //import React from 'react';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Hello from "./hello";
+
+ReactDOM.render(
+  <Hello name="World" />,
+  document.getElementById('app')
+);
+
 
 var logger = require('./logger');;
 
@@ -32,3 +39,9 @@ const elementsArray = Array.from(elements);
 console.log(elementsArray);
 let html = elementsArray.map(
     (e) => ReactDOM.render(<span>{e.textContent}</span>, document.getElementById('app')));
+
+ReactDOM.render(
+  <Hello name="World" />,
+  document.getElementById('app')
+);
+
